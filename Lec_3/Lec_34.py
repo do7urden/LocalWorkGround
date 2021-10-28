@@ -30,8 +30,8 @@ print(triple)
 
 print('lg' in 'Tolga')
 
-var1 = 'la'
+var1 = 'lg'
 var2 = 'Tolga'
 
-print('variable is include' + var1 in var2) # dikkat ettiysen sadece tru/false dönüş yapıyor.
+print(f"variable is include {var1 in var2}") # dikkat ettiysen sadece tru/false dönüş yapıyor.
 
