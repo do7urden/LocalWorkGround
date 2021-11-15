@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../BTE514-2021/.idea/BTE514-2021.iml" filepath="$PROJECT_DIR$/../BTE514-2021/.idea/BTE514-2021.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Homework_BTE514B.iml" filepath="$PROJECT_DIR$/.idea/Homework_BTE514B.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../LocalWorkGround/.idea/LocalWorkGround.iml" filepath="$PROJECT_DIR$/../LocalWorkGround/.idea/LocalWorkGround.iml" />
+    </modules>
+  </component>
+</project>
