@@ -15,7 +15,7 @@
 # # Aşağıdaki arkadaşı farklı bir dosyadan fonksiyon çağırmak için kullanbilirim
 # from Ders04 import Fonksiyonlar as fon
 #
-# print(fonk,calculate_bmi(80,1.8))
+# print(fon.calculate_bmi(80,1.8))
 
 
 
