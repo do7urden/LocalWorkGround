@@ -41,7 +41,7 @@ class CompBoard:
     Comp_PatrolBoat_column.append(random.choice(blankBoard_columns))
     Comp_PatrolBoat_row.append(random.choice(blankBoard_rows))
 
-
+    for
 
 
     if (Comp_Carrier_row[0] < 5):
@@ -118,3 +118,5 @@ class CompBoard:
 print(f'CompBoard.Comp_Carrier is {CompBoard.Comp_Carrier}')
 print(f'CompBoard.Comp_BattleShip is {CompBoard.Comp_BattleShip}')
 print(f'CompBoard.Comp_Destroyer is {CompBoard.Comp_Destroyer}')
+print(f'CompBoard.Comp_Submarine is {CompBoard.Comp_Submarine}')
+print(f'CompBoard.PatrolBoat is {CompBoard.Comp_PatrolBoat}')
