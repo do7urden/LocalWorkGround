@@ -6,7 +6,7 @@ blankBoard_rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 class CompBoard:
 
-    name = 'AI'
+    name = 'HAL_9000'
 
     Comp_Carrier_row = []
     Comp_Carrier_column = []
