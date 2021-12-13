@@ -1,10 +1,6 @@
 import random
 import itertools
 
-
-
-
-
 class CompBoard:
 
     
@@ -109,10 +105,6 @@ class CompBoard:
         self.Comp_Coor_ListDict = [self.Comp_Carrier, self.Comp_BattleShip, self.Comp_Destroyer, self.Comp_Submarine, self.Comp_PatrolBoat]
 
         return self.Comp_Coor_ListDict
-##### OverlapCheck
-
-
-
 
     def Cart(self):
 
@@ -122,11 +114,11 @@ class CompBoard:
         self.Submarine_Coor = list(self.Comp_Submarine.keys()) + list(self.Comp_Submarine.values())
         self.PatrolBoat_Coor = list(self.Comp_PatrolBoat.keys()) + list(self.Comp_PatrolBoat.values())
 
-        print(f'Carrier_Coor is {self.Carrier_Coor}')
-        print(f'BattleShip_Coor is {self.BattleShip_Coor}')
-        print(f'Destroyer_Coor is {self.Destroyer_Coor}')
-        print(f'Submarine_Coor is {self.Submarine_Coor}')
-        print(f'PatrolBoat_Coor is {self.PatrolBoat_Coor}')
+        print(f'Carrier_Coor are {self.Carrier_Coor}')
+        print(f'BattleShip_Coor are {self.BattleShip_Coor}')
+        print(f'Destroyer_Coor are {self.Destroyer_Coor}')
+        print(f'Submarine_Coor are {self.Submarine_Coor}')
+        print(f'PatrolBoat_Coor are {self.PatrolBoat_Coor}')
 
         self.cart_Carrier = itertools.product(self.Carrier_Coor[0], self.Carrier_Coor[1])
         self.cart_BattleShip = itertools.product(self.BattleShip_Coor[0], self.BattleShip_Coor[1])
@@ -135,38 +127,54 @@ class CompBoard:
         self.cart_PatrolBoat = itertools.product(self.PatrolBoat_Coor[0], self.PatrolBoat_Coor[1])
         self.cart_Total = list(self.cart_Carrier) + list(self.cart_BattleShip) + list(self.cart_Destroyer) + list(self.cart_Submarine) + list(self.cart_PatrolBoat)
 
-        # aşağıyı sil
-        # self.cart_Carrier = itertools.product(self.Carrier[0], self.Carrier[1])
-        # self.self.cart_BattleShip = itertools.product(self.BattleShip[0], self.BattleShip[1])
-        # self.self.cart_Destroyer = itertools.product(self.Destroyer[0], self.Destroyer[1])
-        # self.self.cart_Submarine = itertools.product(self.Submarine[0], self.Submarine[1])
-        # self.self.cart_PatrolBoat = itertools.product(self.PatrolBoat[0], self.PatrolBoat[1])
-        # self.self.cart_Total = list(self.cart_Carrier) + list(self.self.cart_BattleShip) + list(self.self.cart_Destroyer) + list(self.Submarine) + list(self.PatrolBoat)
-        #
-        # self.Comp_Coordinates = [self.self.cart_Total, self.Carrier, self.BattleShip, self.Destroyer, self.Submarine, self.PatrolBoat]
-        #
-        # print(f'self.cart_Total {self.cart_Total}')
-        # print()
-        # self.Comp_Coordinates = []
-        # self.Comp_Coordinates = [self.cart_Total, self.Carrier_Coor, self.BattleShip_Coor, self.Destroyer_Coor, self.Submarine_Coor, self.PatrolBoat_Coor] ##
-        return self.cart_Total
-
-    def OverlappingCheck(self):
-        # self.Comp_Coordinates = CompBoard()
-        self.cart_Total = CompBoard.Cart(self)
-        print(f'self.cart_Total is {self.cart_Total}')
-    
+        # print(f'self.cart_Total is {self.cart_Total}')
         while True:
             for k in self.cart_Total:
                 if self.cart_Total.count(k) > 1:
+                    print()
+                    print('######')
                     print('Overlapping found, calculating again')
-                    print(f'k is {k}')
-                    ReGen = CompBoard.Ships()
-                    self.cart_Total = ReGen
+
+                    print(f'Overlapped Cordinate is {k}')
+                    print('######\n')
+                    self.ReGen = CompBoard.Ships(self)
+
+                    # print(f'seflRegen is {self.ReGen}')
+                    # print(f'self.Carrier_Coor is {self.Carrier_Coor}')
+
+                    self.Carrier_Coor = self.ReGen[0]
+                    self.Carrier_Coor = list(self.Comp_Carrier.keys()) + list(self.Comp_Carrier.values())
+
+                    self.BattleShip_Coor = self.ReGen[1]
+                    self.BattleShip_Coor = list(self.Comp_BattleShip.keys()) + list(self.Comp_BattleShip.values())
+
+                    self.Destroyer_Coor = self.ReGen[2]
+                    self.Destroyer_Coor = list(self.Comp_Destroyer.keys()) + list(self.Comp_Destroyer.values())
+
+                    self.Submarine_Coor = self.ReGen[3]
+                    self.Submarine_Coor = list(self.Comp_Submarine.keys()) + list(self.Comp_Submarine.values())
+
+                    self.PatrolBoat_Coor = self.ReGen[4]
+                    self.PatrolBoat_Coor = list(self.Comp_PatrolBoat.keys()) + list(self.Comp_PatrolBoat.values())
+
+                    print(f'Carrier_Coor are {self.Carrier_Coor}')
+                    print(f'BattleShip_Coor are {self.BattleShip_Coor}')
+                    print(f'Destroyer_Coor are {self.Destroyer_Coor}')
+                    print(f'Submarine_Coor are {self.Submarine_Coor}')
+                    print(f'PatrolBoat_Coor are {self.PatrolBoat_Coor}')
+
+                    self.cart_Carrier = itertools.product(self.Carrier_Coor[0], self.Carrier_Coor[1])
+                    self.cart_BattleShip = itertools.product(self.BattleShip_Coor[0], self.BattleShip_Coor[1])
+                    self.cart_Destroyer = itertools.product(self.Destroyer_Coor[0], self.Destroyer_Coor[1])
+                    self.cart_Submarine = itertools.product(self.Submarine_Coor[0], self.Submarine_Coor[1])
+                    self.cart_PatrolBoat = itertools.product(self.PatrolBoat_Coor[0], self.PatrolBoat_Coor[1])
+                    self.cart_Total = list(self.cart_Carrier) + list(self.cart_BattleShip) + list(self.cart_Destroyer) + list(self.cart_Submarine) + list(self.cart_PatrolBoat)
+
                     continue
             break
+        print(f'All Coordinates are:')
+        return self.cart_Total
 
-    AI_Coor = Cart(self)
 
     
 # print(f'Board.Comp_Carrier is {HAL_9000.Cart()}')
@@ -176,10 +184,8 @@ class CompBoard:
 # print(f'Board.PatrolBoat is {CompBoard.Comp_Coordinates[5]}')
 
 HAl_9000 = CompBoard()
-HAl_9000.Ships()
+Ships = HAl_9000.Ships()
+Cart = HAl_9000.Cart()
 
-print(f'All_Ships_Coordinates = {HAl_9000.Cart()}')
-print()
+print(Cart)
 
-print(HAl_9000.AI_Coor)
-# print(HAl_9000.OverlappingCheck())
