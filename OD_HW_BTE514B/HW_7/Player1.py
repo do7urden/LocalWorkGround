@@ -71,8 +71,8 @@ while True:
     for k in cart_Total:
         if cart_Total.count(k) > 1:
             print('Overlapping found, calculating again')
-            print(f'overlapping occured at {k}')
-            print("Please re-enter Coordinats")
+            print(f'overlapping occurred at {k}')
+            print("Please re-enter Coordinates")
             break
     break
 
