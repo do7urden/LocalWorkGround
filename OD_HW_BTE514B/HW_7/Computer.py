@@ -5,7 +5,7 @@ blankBoard_columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',]
 blankBoard_rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
-def CompBoard():
+def Board():
 
     name = 'HAL_9000'
 
@@ -143,8 +143,8 @@ while True:
 
 
 
-print(f'CompBoard.Comp_Carrier is {Comp_Coordinates[1]}')
-print(f'CompBoard.Comp_BattleShip is {Comp_Coordinates[2]}')
-print(f'CompBoard.Comp_Destroyer is {Comp_Coordinates[3]}')
-print(f'CompBoard.Comp_Submarine is {Comp_Coordinates[4]}')
-print(f'CompBoard.PatrolBoat is {Comp_Coordinates[5]}')
+print(f'Board.Comp_Carrier is {Comp_Coordinates[1]}')
+print(f'Board.Comp_BattleShip is {Comp_Coordinates[2]}')
+print(f'Board.Comp_Destroyer is {Comp_Coordinates[3]}')
+print(f'Board.Comp_Submarine is {Comp_Coordinates[4]}')
+print(f'Board.PatrolBoat is {Comp_Coordinates[5]}')

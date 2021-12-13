@@ -143,8 +143,8 @@ while True:
 
 
 
-print(f'CompBoard.Comp_Carrier is {Comp_Coordinates[1]}')
-print(f'CompBoard.Comp_BattleShip is {Comp_Coordinates[2]}')
-print(f'CompBoard.Comp_Destroyer is {Comp_Coordinates[3]}')
-print(f'CompBoard.Comp_Submarine is {Comp_Coordinates[4]}')
-print(f'CompBoard.PatrolBoat is {Comp_Coordinates[5]}')
+print(f'Board.Comp_Carrier is {Comp_Coordinates[1]}')
+print(f'Board.Comp_BattleShip is {Comp_Coordinates[2]}')
+print(f'Board.Comp_Destroyer is {Comp_Coordinates[3]}')
+print(f'Board.Comp_Submarine is {Comp_Coordinates[4]}')
+print(f'Board.PatrolBoat is {Comp_Coordinates[5]}')
