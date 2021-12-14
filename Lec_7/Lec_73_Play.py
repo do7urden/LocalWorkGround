@@ -31,6 +31,7 @@ def Action(name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat):
     while len(AI_Ships_All_Coor) != 0 and len(Player1_All_Coor) != 0:
         if CurrentPlayer == AI_Ships_All_Coor:
             fire = random.choice(All_Board)
+            # fire = ['A', 1]
             if fire in Player1_All_Coor:
                 Player1_All_Coor.remove(fire)
                 CurrentPlayer = Player1_All_Coor
