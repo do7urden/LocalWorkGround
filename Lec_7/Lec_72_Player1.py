@@ -56,7 +56,13 @@ class Player:
         self.cart_Destroyer =   itertools.product(self.Destroyer[0],    self.Destroyer[1])
         self.cart_Submarine =   itertools.product(self.Submarine[0],    self.Submarine[1])
         self.cart_PatrolBoat =  itertools.product(self.PatrolBoat[0],   self.PatrolBoat[1])
-        self.cart_Total2 = list(self.cart_Carrier) + list(self.cart_BattleShip) + list(self.cart_Destroyer) + list(self.cart_Submarine) + list(self.cart_PatrolBoat)
+
+        self.cart_Carrier = list(self.cart_Carrier)
+        self.cart_BattleShip = list(self.cart_BattleShip)
+        self.cart_Destroyer = list(self.cart_Destroyer)
+        self.cart_Submarine = list(self.cart_Submarine)
+        self.cart_PatrolBoat = list(self.cart_PatrolBoat)
+        self.cart_Total2 = self.cart_Carrier + self.cart_BattleShip + self.cart_Destroyer + self.cart_Submarine + self.cart_PatrolBoat
 
         for k in self.cart_Total2:
             if self.cart_Total2.count(k) > 1:
