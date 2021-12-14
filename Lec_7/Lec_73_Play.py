@@ -8,11 +8,11 @@ def Action(name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat):
 
     AI = Lec_71_Computer.CompBoard(Player0='HAl_9000')
     AI_Ships_All_Coor = AI.Cart()
-    print(f'\nAI_Ships_All_Coor = {AI_Ships_All_Coor}\n')
+    print(f'\n#####AI_Ships_All_Coor = {AI_Ships_All_Coor}\n')
 
     PlayerCoor = Lec_72_Player1.Player(name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat)
     Player1_All_Coor = PlayerCoor.Overlapping()
-    print(f'Player1_Ships_All Coor = {Player1_All_Coor}')
+    print(f'\n#####Player1_Ships_All Coor = {Player1_All_Coor}\n')
 
     blankBoard_columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
     blankBoard_rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -37,7 +37,7 @@ def Action(name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat):
             else:
                 # CurrentPlayer = Player1_All_Coor
                 while True:
-                    fire = list(input(f'Please type coordinates: (exp:C4) '))
+                    fire = list(input(f'Please type coordinates where you would like to fire: (example: C4) '))
                     try:
                         fire[1] = int(fire[1])
                         fire = tuple(fire)
@@ -61,7 +61,7 @@ def Action(name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat):
             # CurrentPlayer = Player1_All_Coor
 
             while True:
-                fire = list(input(f'Please type coordinates: (exp:C4) '))
+                fire = list(input(f'Please type coordinates where you would like to fire: (example: C4) '))
                 try:
                     fire[1] = int(fire[1])
                     fire = tuple(fire)

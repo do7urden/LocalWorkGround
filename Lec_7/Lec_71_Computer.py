@@ -120,11 +120,11 @@ class CompBoard:
         self.PatrolBoat_Coor = self.Cart_Toplam[4]
         self.PatrolBoat_Coor = list(self.Comp_PatrolBoat.keys()) + list(self.Comp_PatrolBoat.values())
 
-        print(f'Carrier_Coor are {self.Carrier_Coor}')
-        print(f'BattleShip_Coor are {self.BattleShip_Coor}')
-        print(f'Destroyer_Coor are {self.Destroyer_Coor}')
-        print(f'Submarine_Coor are {self.Submarine_Coor}')
-        print(f'PatrolBoat_Coor are {self.PatrolBoat_Coor}')
+        print(f'AI_Carrier_Coor are {self.Carrier_Coor}')
+        print(f'AI_BattleShip_Coor are {self.BattleShip_Coor}')
+        print(f'AI_Destroyer_Coor are {self.Destroyer_Coor}')
+        print(f'AI_Submarine_Coor are {self.Submarine_Coor}')
+        print(f'AI_PatrolBoat_Coor are {self.PatrolBoat_Coor}')
 
         self.cart_Carrier = itertools.product(self.Carrier_Coor[0], self.Carrier_Coor[1])
         self.cart_BattleShip = itertools.product(self.BattleShip_Coor[0], self.BattleShip_Coor[1])
@@ -139,9 +139,9 @@ class CompBoard:
                 if self.cart_Total.count(k) > 1:
                     print()
                     print('######')
-                    print('Overlapping found, calculating again')
+                    print('AI_Overlapping found, calculating again')
 
-                    print(f'Overlapped Cordinate is {k}')
+                    print(f'AI_Overlapped Cordinate is {k}')
                     print('######\n')
                     self.ReGen = CompBoard.Ships(self)
 
