@@ -32,7 +32,7 @@ def Action(name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat):
         if CurrentPlayer == AI_Ships_All_Coor:
             # CurrentPlayer = AI
             fire = random.choice(All_Board)
-            # fire = ['A', 1]
+            # fire = ['A', 2]
             if fire in Player1_All_Coor:
 
                 Player1_All_Coor.remove(fire)
@@ -47,6 +47,9 @@ def Action(name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat):
                         fire = tuple(fire)
 
                     except ValueError:
+                        print('Acceptable Rage is (A-J)(0-9)')
+                        continue
+                    except IndexError:
                         print('Acceptable Rage is (A-J)(0-9)')
                         continue
 
@@ -70,6 +73,9 @@ def Action(name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat):
                     fire[1] = int(fire[1])
                     fire = tuple(fire)
                 except ValueError:
+                    print('Acceptable Rage is (A-J)(0-9)')
+                    continue
+                except IndexError:
                     print('Acceptable Rage is (A-J)(0-9)')
                     continue
 
