@@ -2,14 +2,11 @@ import random
 import itertools
 
 class CompBoard:
-
-    
-    def __init__(self):
-        self.name = 'HAL_9000'
-        
+    def __init__(self, Player0):
+        self.Player0 = Player0
 
     def Ships(self):
-        blankBoard_columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', ]
+        blankBoard_columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' ]
         blankBoard_rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
         self.Comp_Carrier_row = []
@@ -107,11 +104,20 @@ class CompBoard:
         return self.Comp_Coor_ListDict
 
     def Cart(self):
-
+        self.Cart_Toplam = CompBoard.Ships(self)
+        self.Carrier_Coor = self.Cart_Toplam[0]
         self.Carrier_Coor = list(self.Comp_Carrier.keys()) + list(self.Comp_Carrier.values())
+
+        self.BattleShip_Coor = self.Cart_Toplam[1]
         self.BattleShip_Coor = list(self.Comp_BattleShip.keys()) + list(self.Comp_BattleShip.values())
+
+        self.Destroyer_Coor = self.Cart_Toplam[2]
         self.Destroyer_Coor = list(self.Comp_Destroyer.keys()) + list(self.Comp_Destroyer.values())
+
+        self.Submarine_Coor = self.Cart_Toplam[3]
         self.Submarine_Coor = list(self.Comp_Submarine.keys()) + list(self.Comp_Submarine.values())
+
+        self.PatrolBoat_Coor = self.Cart_Toplam[4]
         self.PatrolBoat_Coor = list(self.Comp_PatrolBoat.keys()) + list(self.Comp_PatrolBoat.values())
 
         print(f'Carrier_Coor are {self.Carrier_Coor}')
@@ -172,20 +178,16 @@ class CompBoard:
 
                     continue
             break
-        print(f'All Coordinates are:')
-        return self.cart_Total
+        CompCoor = self.cart_Total
+        return CompCoor
 
 
     
-# print(f'Board.Comp_Carrier is {HAL_9000.Cart()}')
-# print(f'Board.self.Comp_BattleShip is {CompBoard.Comp_Coordinates[2]}')
-# print(f'Board.Comp_Destroyer is {CompBoard.Comp_Coordinates[3]}')
-# print(f'Board.Comp_Submarine is {CompBoard.Comp_Coordinates[4]}')
-# print(f'Board.PatrolBoat is {CompBoard.Comp_Coordinates[5]}')
+#
+#
+# HAl_9000 = CompBoard()
+# Ships = HAl_9000.Ships()
+# Cart = HAl_9000.Cart()
 
-HAl_9000 = CompBoard()
-Ships = HAl_9000.Ships()
-Cart = HAl_9000.Cart()
-
-print(Cart)
+# print(Cart)
 
