@@ -20,13 +20,13 @@ def Action(name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat):
     All_Board = itertools.product(blankBoard_columns, blankBoard_rows)
     All_Board = list(All_Board)
 
-    print(f'All_Board {All_Board}')
+    # print(f'All_Board {All_Board}')
 
     Players = []
     Players.append(AI_Ships_All_Coor)
     Players.append(Player1_All_Coor)
     CurrentPlayer = random.choice(Players)
-    print(f'CurrentPlayer is {CurrentPlayer}')
+    # print(f'CurrentPlayer is {CurrentPlayer}')
 
     while len(AI_Ships_All_Coor) != 0 and len(Player1_All_Coor) != 0:
         if CurrentPlayer == AI_Ships_All_Coor:
@@ -35,13 +35,47 @@ def Action(name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat):
                 Player1_All_Coor.remove(fire)
                 CurrentPlayer = Player1_All_Coor
             else:
-                CurrentPlayer = Player1_All_Coor
-                fire = random.choice(All_Board)
+                # CurrentPlayer = Player1_All_Coor
+                while True:
+                    fire = list(input(f'Please type coordinates: (exp:C4) '))
+                    try:
+                        fire[1] = int(fire[1])
+                        fire = tuple(fire)
+                    except ValueError:
+                        print('Acceptable Rage is (A-J)(0-9)')
+                        continue
+
+                    if fire not in All_Board:
+                        print('Acceptable Rage is (A-J)(0-9)')
+                        continue
+                    else:
+                        break
+
                 if fire in AI_Ships_All_Coor:
                     AI_Ships_All_Coor.remove(fire)
+                    CurrentPlayer = AI_Ships_All_Coor
+                else:
+                    CurrentPlayer = AI_Ships_All_Coor
+
         else:
             # CurrentPlayer = Player1_All_Coor
-            fire = random.choice(All_Board)
+
+            while True:
+                fire = list(input(f'Please type coordinates: (exp:C4) '))
+                try:
+                    fire[1] = int(fire[1])
+                    fire = tuple(fire)
+                except ValueError:
+                    print('Acceptable Rage is (A-J)(0-9)')
+                    continue
+
+                if fire not in All_Board:
+                    print('Acceptable Rage is (A-J)(0-9)')
+                    continue
+                else:
+                    break
+
+
             if fire in AI_Ships_All_Coor:
                 AI_Ships_All_Coor.remove(fire)
                 CurrentPlayer = AI_Ships_All_Coor
@@ -49,20 +83,13 @@ def Action(name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat):
                 CurrentPlayer = AI_Ships_All_Coor
 
     if len(AI_Ships_All_Coor) == 0:
-        print('Player1 Won')
+        print(f'{name} Won')
     else:
         print('AI Won!')
 
 
 
-
-
-
-
-
-
-
-name = 'onur'
+name = 'Onurd'
 Carrier = 'A/12345'
 BattleShip = 'B/6789'
 Destroyer = 'C/765'
