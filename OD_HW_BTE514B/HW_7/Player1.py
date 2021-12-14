@@ -1,21 +1,11 @@
 import itertools
 
-blankBoard_columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',]
+blankBoard_columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' ]
 blankBoard_rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-# name = input(f'Name = ')
-# Carrier = input(f'Carrier_Coor(column(A-J)/row(5X)')
-# BattleShip = input(f'BattleShip_Coor(column(A-J)/row(4X)')
-# Destroyer = input(f'Destroyer_Coor(column(A-J)/row(3X)')
-
-# name = input(f'Name = '),
-# Carrier = input(f'Carrier_Coor(column(A-J)/row(5X)'),
-# BattleShip = input(f'BattleShip_Coor(column(A-J)/row(4X)'),
-# Destroyer = input(f'Destroyer_Coor(column(A-J)/row(3X)')
 
 class Player:
     def __init__(self, name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat):
-        self.Submarine = Submarine
         self.name = name
         self.Carrier = Carrier.split('/')
         self.BattleShip = BattleShip.split('/')
@@ -58,45 +48,27 @@ class Player:
         self.PatrolBoat.append(self.PatrolBoat_Col)
         self.PatrolBoat.append(list(self.PatrolBoat_Row))
 
+        return
 
     def Overlapping(self):
-        self.cart_Carrier = itertools.product(self.Carrier[0], self.Carrier[1])
-        self.cart_BattleShip = itertools.product(self.BattleShip[0], self.BattleShip[1])
-        self.cart_Destroyer = itertools.product(self.Destroyer[0], self.Destroyer[1])
-        self.cart_Submarine = itertools.product(self.Submarine[0], self.Submarine[1])
-        self.cart_PatrolBoat = itertools.product(self.PatrolBoat[0], self.PatrolBoat[1])
+        self.cart_Carrier =     itertools.product(self.Carrier[0],      self.Carrier[1])
+        self.cart_BattleShip =  itertools.product(self.BattleShip[0],   self.BattleShip[1])
+        self.cart_Destroyer =   itertools.product(self.Destroyer[0],    self.Destroyer[1])
+        self.cart_Submarine =   itertools.product(self.Submarine[0],    self.Submarine[1])
+        self.cart_PatrolBoat =  itertools.product(self.PatrolBoat[0],   self.PatrolBoat[1])
 
-        self.cart_Total = list(self.cart_Carrier) + list(self.cart_BattleShip) + list(self.cart_Destroyer) + list(self.Submarine) + list(self.PatrolBoat)
+        self.cart_Carrier = list(self.cart_Carrier)
+        self.cart_BattleShip = list(self.cart_BattleShip)
+        self.cart_Destroyer = list(self.cart_Destroyer)
+        self.cart_Submarine = list(self.cart_Submarine)
+        self.cart_PatrolBoat = list(self.cart_PatrolBoat)
+        self.cart_Total2 = self.cart_Carrier + self.cart_BattleShip + self.cart_Destroyer + self.cart_Submarine + self.cart_PatrolBoat
 
-        self.Comp_Coordinates = [self.cart_Total, self.Carrier, self.BattleShip, self.Destroyer, self.Submarine, self.PatrolBoat]
+        for k in self.cart_Total2:
+            if self.cart_Total2.count(k) > 1:
+                print('Overlapping found, calculating again')
+                print(f'overlapping occurred at {k}')
+                print("Please re-enter Coordinates")
+                break
 
-        return self.Comp_Coordinates
-
-name = 'onur'
-Carrier = 'A/12345'
-BattleShip = 'B/6789'
-Destroyer = 'C/765'
-Submarine = 'D/98'
-PatrolBoat = 'J/77'
-
-Player1 = Player(name,Carrier,BattleShip,Destroyer,Submarine,PatrolBoat)
-
-Comp_Coordinates = Player1.Overlapping()
-cart_Total = Comp_Coordinates[0]
-print(f'cart_Total is {cart_Total}')
-
-while True:
-    for k in cart_Total:
-        if cart_Total.count(k) > 1:
-            print('Overlapping found, calculating again')
-            print(f'overlapping occurred at {k}')
-            print("Please re-enter Coordinates")
-            break
-    break
-
-print(Player1.name)
-print(Player1.Carrier)
-print(Player1.BattleShip)
-print(Player1.Destroyer)
-print(Player1.Submarine)
-print(Player1.PatrolBoat)
+        return self.cart_Total2
