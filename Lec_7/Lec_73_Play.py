@@ -30,18 +30,22 @@ def Action(name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat):
 
     while len(AI_Ships_All_Coor) != 0 and len(Player1_All_Coor) != 0:
         if CurrentPlayer == AI_Ships_All_Coor:
-            fire = random.choice(All_Board)
-            # fire = ['A', 1]
+            # CurrentPlayer = AI
+            # fire = random.choice(All_Board)
+            fire = ['A', 1]
             if fire in Player1_All_Coor:
+
                 Player1_All_Coor.remove(fire)
+                print(f'Ship hit at {fire}')
                 CurrentPlayer = Player1_All_Coor
             else:
-                # CurrentPlayer = Player1_All_Coor
+                # CurrentPlayer = Player1
                 while True:
                     fire = list(input(f'Please type coordinates where you would like to fire: (example: C4) '))
                     try:
                         fire[1] = int(fire[1])
                         fire = tuple(fire)
+
                     except ValueError:
                         print('Acceptable Rage is (A-J)(0-9)')
                         continue
@@ -51,16 +55,15 @@ def Action(name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat):
                         continue
                     else:
                         break
-
                 if fire in AI_Ships_All_Coor:
                     AI_Ships_All_Coor.remove(fire)
+                    print(f'Ship hit at {fire}')
                     CurrentPlayer = AI_Ships_All_Coor
                 else:
                     CurrentPlayer = AI_Ships_All_Coor
 
         else:
-            # CurrentPlayer = Player1_All_Coor
-
+            # CurrentPlayer = Player1
             while True:
                 fire = list(input(f'Please type coordinates where you would like to fire: (example: C4) '))
                 try:
@@ -76,11 +79,12 @@ def Action(name, Carrier, BattleShip, Destroyer, Submarine, PatrolBoat):
                 else:
                     break
 
-
             if fire in AI_Ships_All_Coor:
                 AI_Ships_All_Coor.remove(fire)
+                print(f'Ship hit at {fire}')
                 CurrentPlayer = AI_Ships_All_Coor
             else:
+                # CurrentPlayer = AI
                 CurrentPlayer = AI_Ships_All_Coor
 
     if len(AI_Ships_All_Coor) == 0:
